@@ -1,6 +1,7 @@
 package android.vm.myhealt;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,7 @@ public class MainActivity extends Activity {
     TextView welcomeTv;
     Button changeTextBtn;
     EditText changeTextEdit;
-
+    Activity activity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,9 @@ public class MainActivity extends Activity {
         changeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                welcomeTv.setText(changeTextEdit.getText());
+                //welcomeTv.setText(changeTextEdit.getText());
+                Intent intent = new Intent(activity,SecondActivity.class);
+                startActivity(intent);
             }
         });
         changeTextEdit=(EditText) findViewById(R.id.change_text_edit);
