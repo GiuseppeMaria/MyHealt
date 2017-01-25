@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
     Button changeTextBtn;
     EditText changeTextEdit;
     Activity activity = this;
-
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //welcomeTv.setText(changeTextEdit.getText());
+                username = changeTextEdit.getText().toString();
                 Intent intent = new Intent(activity,SecondActivity.class);
+                intent.putExtra("username",username);
                 startActivity(intent);
             }
         });
